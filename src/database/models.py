@@ -7,6 +7,8 @@ from sqlalchemy.sql.sqltypes import Date, DateTime
 
 
 class Base(DeclarativeBase):
+    """Base class providing timestamp columns for database models."""
+
     created_at: Mapped[datetime] = mapped_column(DateTime, default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
         DateTime, default=func.now(), onupdate=func.now()
@@ -14,6 +16,8 @@ class Base(DeclarativeBase):
 
 
 class Contact(Base):
+    """A contact record owned by an application user."""
+
     __tablename__ = "contacts"
     id: Mapped[int] = mapped_column(Integer, primary_key=True)
     first_name: Mapped[str] = mapped_column(String(50), nullable=False)
@@ -29,6 +33,8 @@ class Contact(Base):
 
 
 class User(Base):
+    """An authenticated account with a role and optional avatar."""
+
     __tablename__ = "users"
     id = Column(Integer, primary_key=True)
     username = Column(String, unique=True)
@@ -37,3 +43,4 @@ class User(Base):
     created_at = Column(DateTime, default=func.now())
     avatar = Column(String(255), nullable=True)
     confirmed = Column(Boolean, default=False)
+    role = Column(String(20), nullable=False, default="user", server_default="user")

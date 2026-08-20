@@ -10,6 +10,7 @@ router = APIRouter(tags=["utils"])
 
 @router.get("/healthchecker")
 async def healthchecker(db: AsyncSession = Depends(get_db)):
+    """Verify that the API can execute a query against the database."""
     try:
         # Виконуємо асинхронний запит
         result = await db.execute(text("SELECT 1"))

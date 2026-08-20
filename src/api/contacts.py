@@ -20,6 +20,7 @@ async def read_contacts(
     db: AsyncSession = Depends(get_db),
     user: User = Depends(get_current_user),
 ):
+    """Return a paginated list of contacts for the current user."""
 
     contact_service = ContactService(db)
     contacts = await contact_service.get_contacts(skip, limit, user)

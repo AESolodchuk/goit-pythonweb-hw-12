@@ -9,6 +9,8 @@ class Settings(BaseSettings):
     JWT_SECRET: str
     JWT_ALGORITHM: str = "HS256"
     JWT_EXPIRATION_SECONDS: int = 3600
+    PASSWORD_RESET_EXPIRATION_SECONDS: int = 900
+    REDIS_URL: str = "redis://localhost:6379/0"
 
     MAIL_USERNAME: str
     MAIL_PASSWORD: str

@@ -37,6 +37,7 @@ async def rate_limit_handler(request: Request, exc: RateLimitExceeded):
 
 @app.get("/")
 async def root():
+    """Return the welcome message for the API root endpoint."""
     return {"message": messages.WELCOME_MESSAGE}
 
 
