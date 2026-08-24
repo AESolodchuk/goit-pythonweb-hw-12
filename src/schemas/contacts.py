@@ -18,6 +18,7 @@ class ContactBase(BaseModel):
 
     @field_validator("birthday")
     def validate_birthday(cls, v):
+        """Reject birthdays later than the current date."""
         if v > date.today():
             raise ValueError("Birthday cannot be in the future")
         return v

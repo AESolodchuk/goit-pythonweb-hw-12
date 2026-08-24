@@ -108,6 +108,13 @@ poetry run pytest
 The project requires total coverage of at least 75%. Run a specific group with
 `poetry run pytest tests/unit` or `poetry run pytest tests/integration`.
 
+Verified result on 2026-08-21:
+
+```text
+32 passed
+Required test coverage of 75% reached. Total coverage: 84.70%
+```
+
 Build the Sphinx documentation with:
 
 ```shell

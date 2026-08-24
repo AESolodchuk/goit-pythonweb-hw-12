@@ -25,6 +25,7 @@ def get_mail_config() -> ConnectionConfig:
 
 
 async def send_email(email: EmailStr, username: str, host: str):
+    """Send an email-verification link to a newly registered user."""
     try:
         token_verification = create_email_token({"sub": email})
         message = MessageSchema(
